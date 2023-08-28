@@ -10,12 +10,16 @@ searchInput.addEventListener("input", () => {
   }
 });
 
+
+
 async function searchCountries(searchTerm) {
   clearCountryList();
   
   try {
     const response = await fetch(`https://restcountries.com/v2/name/${searchTerm}`);
     const countries = await response.json();
+
+    
     
     countries.forEach(country => {
       const li = document.createElement("li");
