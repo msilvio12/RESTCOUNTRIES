@@ -1,5 +1,3 @@
-
-
 const searchInput = document.getElementById("searchInput");
 const countryList = document.getElementById("countryList");
 const countryInfoContainer = document.getElementById("countryInfo");
@@ -36,45 +34,9 @@ function updateCountryList(countries) {
 
 function createListItem(country) {
   const li = document.createElement("li");
-  li.textContent = country.name; // Corrección aquí
+  li.textContent = country.name;
   li.addEventListener("click", () => {
     showCountryInfo(country);
-    hideCountryList();
   });
   return li;
-}
-
-function showCountryInfo(country) {
-  clearCountryInfo();
-
-  const flagImg = document.createElement("img");
-  flagImg.src = country.flags.png; // Corrección aquí
-
-  const capitalInfo = document.createElement("p");
-  capitalInfo.textContent = `Capital: ${country.capital}`;
-
-  const populationInfo = document.createElement("p");
-  populationInfo.textContent = `Population: ${country.population}`;
-
-  const languageInfo = document.createElement("p");
-  languageInfo.textContent = `Language: ${country.languages[0].name}`;
-
-  countryInfoContainer.appendChild(flagImg);
-  countryInfoContainer.appendChild(capitalInfo);
-  countryInfoContainer.appendChild(populationInfo);
-  countryInfoContainer.appendChild(languageInfo);
-
-  hideCountryList();
-}
-
-function clearCountryList() {
-  countryList.innerHTML = "";
-}
-
-function clearCountryInfo() {
-  countryInfoContainer.innerHTML = "";
-}
-
-function hideCountryList() {
-  countryList.style.display = "none";
 }
